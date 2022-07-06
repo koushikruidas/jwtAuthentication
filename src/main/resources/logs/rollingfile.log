@@ -1,0 +1,41 @@
+2022-07-06 11:20:34,627 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 11016 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 11:20:34,627 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 11:31:05,302 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 11:31:05,303 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 11:31:10,884 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 6.001 seconds (JVM running for 6.791)
+2022-07-06 11:45:10,694 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 11:45:10,695 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 11:45:11,705 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 1.058 seconds (JVM running for 847.611)
+2022-07-06 11:50:44,032 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 11:50:44,032 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 11:50:45,049 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 1.069 seconds (JVM running for 1180.955)
+2022-07-06 11:59:26,078 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 11:59:26,079 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 11:59:26,931 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 0.895 seconds (JVM running for 1702.838)
+2022-07-06 12:00:43,444 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 12:00:43,444 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:00:44,225 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 0.826 seconds (JVM running for 1780.131)
+2022-07-06 12:01:11,462 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 12:01:11,462 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:01:12,330 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 0.903 seconds (JVM running for 1808.236)
+2022-07-06 12:01:48,854 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 12:01:48,854 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:01:49,556 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 0.734 seconds (JVM running for 1845.462)
+2022-07-06 12:03:52,081 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 12:03:52,081 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:04:41,512 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 12:04:41,512 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:04:42,250 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 0.765 seconds (JVM running for 2018.156)
+2022-07-06 12:04:47,907 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 2560 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 12:04:47,908 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:04:48,579 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 0.7 seconds (JVM running for 2024.485)
+2022-07-06 12:05:48,105 ERROR com.test.socialLogin.security.JwtAuthenticationEntryPoint : Unauthorized Error
+2022-07-06 12:31:53,378 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 10264 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 12:31:53,379 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:31:58,778 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 5.819 seconds (JVM running for 6.56)
+2022-07-06 12:55:46,142 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 13812 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 12:55:46,143 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:55:51,384 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 5.658 seconds (JVM running for 6.393)
+2022-07-06 12:58:15,253 INFO  com.test.socialLogin.SocialLoginApplication : Starting SocialLoginApplication using Java 15.0.2 on DESKTOP-86389D5 with PID 13812 (C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin\target\classes started by ASUS in C:\Users\ASUS\Documents\springBoot\socialLogin\socialLogin)
+2022-07-06 12:58:15,253 INFO  com.test.socialLogin.SocialLoginApplication : No active profile set, falling back to 1 default profile: "default"
+2022-07-06 12:58:16,457 INFO  com.test.socialLogin.SocialLoginApplication : Started SocialLoginApplication in 1.259 seconds (JVM running for 151.466)
