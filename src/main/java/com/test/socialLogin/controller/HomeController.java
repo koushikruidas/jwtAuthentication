@@ -30,4 +30,9 @@ public class HomeController {
 	public Optional<User> getUser(@PathVariable Long id) {
 		return homeService.findById(id);
 	}
+	
+	@GetMapping("/index")
+	public String index() {
+		return "Welcome to the index page";
+	}
 }
