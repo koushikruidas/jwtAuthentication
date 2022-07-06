@@ -1,1 +1,0 @@
-#logback.classic pattern: %d %-5level %logger : %msg%n
