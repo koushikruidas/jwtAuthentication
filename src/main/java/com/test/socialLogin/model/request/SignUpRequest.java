@@ -12,6 +12,16 @@ public class SignUpRequest {
 
     @NotBlank
     private String password;
+    
+    private String imageurl;
+
+	public String getImageurl() {
+		return imageurl;
+	}
+
+	public void setImageurl(String imageurl) {
+		this.imageurl = imageurl;
+	}
 
 	public String getName() {
 		return name;
