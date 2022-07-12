@@ -12,9 +12,9 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
+public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-	private static Logger LOGGER = org.slf4j.LoggerFactory.getLogger(JwtAuthenticationEntryPoint.class);
+	private static Logger LOGGER = org.slf4j.LoggerFactory.getLogger(RestAuthenticationEntryPoint.class);
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException authException) throws IOException, ServletException {

@@ -1,10 +1,10 @@
 package com.test.socialLogin.model.response;
 
-public class JwtAuthenticationResponse {
+public class AuthenticationResponse {
     private String accessToken;
     private String tokenType = "Bearer";
 
-    public JwtAuthenticationResponse(String accessToken) {
+    public AuthenticationResponse(String accessToken) {
         this.accessToken = accessToken;
     }
 
