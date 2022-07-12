@@ -5,7 +5,7 @@ import com.test.socialLogin.model.RoleName;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "roles", catalog = "social_login")
+@Table(name = "oauth_roles", catalog = "social_login")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

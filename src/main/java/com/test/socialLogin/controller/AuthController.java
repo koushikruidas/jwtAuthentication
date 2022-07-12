@@ -1,6 +1,7 @@
 package com.test.socialLogin.controller;
 
 import java.net.URI;
+import java.util.Collections;
 
 import javax.validation.Valid;
 
@@ -17,13 +18,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.test.socialLogin.entity.Role;
 import com.test.socialLogin.entity.User;
+import com.test.socialLogin.exception.AppException;
 import com.test.socialLogin.exception.BadRequestException;
 import com.test.socialLogin.model.AuthProvider;
+import com.test.socialLogin.model.RoleName;
 import com.test.socialLogin.model.request.LoginRequest;
 import com.test.socialLogin.model.request.SignUpRequest;
 import com.test.socialLogin.model.response.ApiResponse;
 import com.test.socialLogin.model.response.AuthenticationResponse;
+import com.test.socialLogin.repository.RoleRepository;
 import com.test.socialLogin.repository.UserRepository;
 import com.test.socialLogin.security.TokenProvider;
 
@@ -36,6 +41,9 @@ public class AuthController {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -71,6 +79,10 @@ public class AuthController {
         user.setEmail(signUpRequest.getEmail());
         user.setPassword(signUpRequest.getPassword());
         user.setProvider(AuthProvider.local);
+        
+        Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
+				.orElseThrow(() -> new AppException("User Role not set."));
+        user.setRoles(Collections.singleton(userRole));
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
