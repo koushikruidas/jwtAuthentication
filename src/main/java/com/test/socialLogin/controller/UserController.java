@@ -21,7 +21,6 @@ import com.test.socialLogin.security.UserPrincipal;
 import com.test.socialLogin.service.IHomeService;
 
 @RestController
-@RequestMapping("/api")
 public class UserController {
 
     @Autowired
@@ -37,6 +36,7 @@ public class UserController {
     }
     
 	@GetMapping("/getUsers")
+	@Secured({"ROLE_USER"})
 	public ResponseEntity<List<User>> getUsers(){
 		return new ResponseEntity<List<User>>(homeService.getUsers(), HttpStatus.OK);
 	}
