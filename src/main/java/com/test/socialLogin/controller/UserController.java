@@ -37,6 +37,7 @@ public class UserController {
     }
     
 	@GetMapping("/getUsers")
+	@Secured({"ROLE_USER"})
 	public ResponseEntity<List<User>> getUsers(){
 		return new ResponseEntity<List<User>>(homeService.getUsers(), HttpStatus.OK);
 	}
