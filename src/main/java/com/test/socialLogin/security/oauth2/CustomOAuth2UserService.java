@@ -1,5 +1,6 @@
 package com.test.socialLogin.security.oauth2;
 
+import java.util.Collections;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,13 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import com.test.socialLogin.entity.Role;
 import com.test.socialLogin.entity.User;
+import com.test.socialLogin.exception.AppException;
 import com.test.socialLogin.exception.OAuth2AuthenticationProcessingException;
 import com.test.socialLogin.model.AuthProvider;
+import com.test.socialLogin.model.RoleName;
+import com.test.socialLogin.repository.RoleRepository;
 import com.test.socialLogin.repository.UserRepository;
 import com.test.socialLogin.security.UserPrincipal;
 import com.test.socialLogin.security.oauth2.user.OAuth2UserInfo;
@@ -25,6 +30,9 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private RoleRepository roleRepository; // to set the user role during oAuth login
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest oAuth2UserRequest) throws OAuth2AuthenticationException {
@@ -50,6 +58,11 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         User user;
         if(userOptional.isPresent()) {
             user = userOptional.get();
+            
+            Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
+            		.orElseThrow(() -> new AppException("User Role not set."));
+            user.setRoles(Collections.singleton(userRole));
+            
             if(!user.getProvider().equals(AuthProvider.valueOf(oAuth2UserRequest.getClientRegistration().getRegistrationId()))) {
                 throw new OAuth2AuthenticationProcessingException("Looks like you're signed up with " +
                         user.getProvider() + " account. Please use your " + user.getProvider() +
