@@ -18,7 +18,7 @@ spring:
             google:
               clientId: 2391223750-l4kkpe7j9ni324gmvfuoh430mjaol5p9.apps.googleusercontent.com
               clientSecret: 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
-              redirectUri: "http://localhost:3000/oauth2/redirect"
+              redirectUri: "http://localhost:8080/oauth2/callback/google"
               scope:
                 - email
                 - profile
@@ -48,6 +48,6 @@ app:
     # redirectUri mentioned by the client in the /oauth2/authorize request.
     # We're not using cookies because they won't work well in mobile clients.
     authorizedRedirectUris:
-      - http://localhost:8080/oauth2/redirect
+      - http://localhost:3000/oauth2/redirect
       - myandroidapp://oauth2/redirect
       - myiosapp://oauth2/redirect

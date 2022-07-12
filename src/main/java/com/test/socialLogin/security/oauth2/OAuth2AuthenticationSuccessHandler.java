@@ -4,7 +4,6 @@ import static com.test.socialLogin.security.oauth2.HttpCookieOAuth2Authorization
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.ServletException;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -35,9 +33,10 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
 
     @Autowired
-    OAuth2AuthenticationSuccessHandler(TokenProvider tokenProvider,
+    OAuth2AuthenticationSuccessHandler(TokenProvider tokenProvider, ApplicationProps appProps,
                                        HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository) {
         this.tokenProvider = tokenProvider;
+        this.appProps = appProps;
         this.httpCookieOAuth2AuthorizationRequestRepository = httpCookieOAuth2AuthorizationRequestRepository;
     }
 
@@ -79,7 +78,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
     private boolean isAuthorizedRedirectUri(String uri) {
         URI clientRedirectUri = URI.create(uri);
 
-        return appProps.getAuthorizedRedirectUris()
+        return appProps.getOauth2().getAuthorizedRedirectUris()
                 .stream()
                 .anyMatch(authorizedRedirectUri -> {
                     // Only validate host and port. Let the clients use different paths if they want to
