@@ -21,7 +21,6 @@ import com.test.socialLogin.security.UserPrincipal;
 import com.test.socialLogin.service.IHomeService;
 
 @RestController
-@RequestMapping("/api")
 public class UserController {
 
     @Autowired
