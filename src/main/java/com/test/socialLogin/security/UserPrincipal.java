@@ -1,104 +1,117 @@
 package com.test.socialLogin.security;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
+import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+
+import com.test.socialLogin.entity.Role;
 import com.test.socialLogin.entity.User;
 
-public class UserPrincipal implements UserDetails {
+public class UserPrincipal implements OAuth2User, UserDetails {
+	private static Logger logger = LoggerFactory.getLogger(UserPrincipal.class);
+    private Long id;
+    private String email;
+    private String password;
+    private Collection<? extends GrantedAuthority> authorities;
+    private Map<String, Object> attributes;
 
-	private Long id;
-	private String name;
-	private String username;
-	@JsonIgnore
-	private String email;
-	@JsonIgnore
-	private String password;
-	private Collection<? extends GrantedAuthority> authorities;
-	
-	public UserPrincipal(Long id, String name, String username, String email, String password,
-			Collection<? extends GrantedAuthority> authorities) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		this.authorities = authorities;
-	}
-	
-	public static UserPrincipal create(User user) {
-		List<GrantedAuthority> authorities = user.getRoles().stream().map(role -> 
-				new SimpleGrantedAuthority(role.getName().name())
-				).collect(Collectors.toList());
-		return new UserPrincipal(
+    public UserPrincipal(Long id, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.authorities = authorities;
+    }
+
+    public static UserPrincipal create(User user) {
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        Set<Role> roles = user.getRoles();
+        logger.debug("Koushik: roleSize: "+roles.size());
+        int i = 0;
+        for (Role role : roles) {
+        	i++;
+        	logger.debug("Koushik: role.getName().name(): "+role.getName().toString()+" Count: "+i);
+        	logger.debug("Koushik: role.getName(): "+ role.getName()+" Count: "+i);
+            authorities.add(new SimpleGrantedAuthority(role.getName().toString()));
+        }
+        return new UserPrincipal(
                 user.getId(),
-                user.getName(),
-                user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
                 authorities
         );
-	}
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public static UserPrincipal create(User user, Map<String, Object> attributes) {
+        UserPrincipal userPrincipal = UserPrincipal.create(user);
+        userPrincipal.setAttributes(attributes);
+        return userPrincipal;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return authorities;
-	}
+    @Override
+    public String getPassword() {
+        return password;
+    }
 
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return password;
-	}
+    @Override
+    public String getUsername() {
+        return email;
+    }
 
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return username;
-	}
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
 
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
 
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
+
+    @Override
+    public Map<String, Object> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(Map<String, Object> attributes) {
+        this.attributes = attributes;
+    }
+
+    @Override
+    public String getName() {
+        return String.valueOf(id);
+    }
 
 	@Override
 	public int hashCode() {
@@ -130,5 +143,4 @@ public class UserPrincipal implements UserDetails {
 			return false;
 		return true;
 	}
-
 }

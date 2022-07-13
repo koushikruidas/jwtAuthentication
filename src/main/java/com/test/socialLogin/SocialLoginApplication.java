@@ -2,10 +2,14 @@ package com.test.socialLogin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import com.test.socialLogin.config.ApplicationProps;
 
 @SpringBootApplication
 @EnableWebMvc // for swagger implementation we have to use this annotation
+@EnableConfigurationProperties(ApplicationProps.class)
 public class SocialLoginApplication {
 
 	public static void main(String[] args) {
