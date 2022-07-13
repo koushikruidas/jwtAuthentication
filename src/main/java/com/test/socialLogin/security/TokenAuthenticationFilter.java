@@ -36,6 +36,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
             if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
                 Long userId = tokenProvider.getUserIdFromToken(jwt);
+                logger.debug("Koushik: userId= "+userId);
 
                 /*
                     Note that you could also encode the user's username and roles inside JWT claims

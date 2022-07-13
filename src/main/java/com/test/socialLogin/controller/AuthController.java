@@ -2,6 +2,8 @@ package com.test.socialLogin.controller;
 
 import java.net.URI;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -80,9 +82,14 @@ public class AuthController {
         user.setPassword(signUpRequest.getPassword());
         user.setProvider(AuthProvider.local);
         
-        Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
-				.orElseThrow(() -> new AppException("User Role not set."));
-        user.setRoles(Collections.singleton(userRole));
+        Set<Role> roles = new HashSet<Role>();
+        Role userRole1 = roleRepository.findByName(RoleName.ROLE_USER)
+        		.orElseThrow(() -> new AppException("User Role not set."));
+        Role userRole2 = roleRepository.findByName(RoleName.ROLE_ADMIN)
+        		.orElseThrow(() -> new AppException("User Role not set."));
+        roles.add(userRole1);
+        roles.add(userRole2);
+        user.setRoles(roles);
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
