@@ -1,18 +1,23 @@
 package com.test.socialLogin.security;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
+import com.test.socialLogin.entity.Role;
 import com.test.socialLogin.entity.User;
 
 public class UserPrincipal implements OAuth2User, UserDetails {
+	private static Logger logger = LoggerFactory.getLogger(UserPrincipal.class);
     private Long id;
     private String email;
     private String password;
@@ -27,9 +32,16 @@ public class UserPrincipal implements OAuth2User, UserDetails {
     }
 
     public static UserPrincipal create(User user) {
-        List<GrantedAuthority> authorities = Collections.
-                singletonList(new SimpleGrantedAuthority("ROLE_USER"));
-
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        Set<Role> roles = user.getRoles();
+        logger.debug("Koushik: roleSize: "+roles.size());
+        int i = 0;
+        for (Role role : roles) {
+        	i++;
+        	logger.debug("Koushik: role.getName().name(): "+role.getName().toString()+" Count: "+i);
+        	logger.debug("Koushik: role.getName(): "+ role.getName()+" Count: "+i);
+            authorities.add(new SimpleGrantedAuthority(role.getName().toString()));
+        }
         return new UserPrincipal(
                 user.getId(),
                 user.getEmail(),
