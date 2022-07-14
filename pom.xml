@@ -48,9 +48,9 @@
 		</dependency>
 		<!-- Spring oauth support -->
 		<dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-client</artifactId>
-        </dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-client</artifactId>
+		</dependency>
 		<!-- JWT library -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
