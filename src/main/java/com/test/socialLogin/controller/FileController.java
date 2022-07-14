@@ -26,6 +26,8 @@ import com.test.socialLogin.entity.DBFile;
 import com.test.socialLogin.model.response.UploadFileResponse;
 import com.test.socialLogin.service.DBFileStorageService;
 
+import io.swagger.annotations.ApiParam;
+
 @RestController
 public class FileController {
 
@@ -50,9 +52,10 @@ public class FileController {
                 file.getContentType(), file.getSize());
     }
     
+    // for multiple file upload swagger ui is not working but through postman we can use it
     @Secured({"ROLE_ADMIN"})
-    @PostMapping("/uploadMultipleFiles")
-    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, path = "/uploadMultipleFiles")
+    public List<UploadFileResponse> uploadMultipleFiles(@RequestPart("files") MultipartFile[] files) {
         return Arrays.asList(files)
                 .stream()
                 .map(file -> uploadFile(file))
