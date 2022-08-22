@@ -22,7 +22,9 @@ import com.test.socialLogin.service.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(
+@EnableGlobalMethodSecurity(  // The prePostEnabled property enables Spring Security pre/post annotations.
+							  // The securedEnabled property determines if the @Secured annotation should be enabled.
+							  // The jsr250Enabled property allows us to use the @RoleAllowed annotation.
         securedEnabled = true,
         jsr250Enabled = true,
         prePostEnabled = true
