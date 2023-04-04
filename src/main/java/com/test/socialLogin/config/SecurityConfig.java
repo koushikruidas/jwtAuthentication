@@ -29,6 +29,8 @@ import com.test.socialLogin.service.CustomUserDetailsService;
         jsr250Enabled = true,
         prePostEnabled = true
 )
+// for details visit: https://www.javainuse.com/spring/boot-jwt
+
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     CustomUserDetailsService customUserDetailsService;

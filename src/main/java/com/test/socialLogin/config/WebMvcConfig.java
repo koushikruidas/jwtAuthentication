@@ -7,10 +7,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import io.swagger.models.auth.In;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -25,6 +29,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+//@EnableJpaAuditing
 public class WebMvcConfig implements WebMvcConfigurer {
 
     private final long MAX_AGE_SECS = 3600;
@@ -55,6 +60,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
           .paths(PathSelectors.any())
           .build();                                           
     }
+    
+    // To access swagger UI url: localhost:<port>/swagger-ui/
+    
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html")
@@ -74,7 +82,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
     
     private ApiKey apiKey() {
-        return new ApiKey("JWT", "Authorization", "header"); 
+        return new ApiKey("JWT", HttpHeaders.AUTHORIZATION, In.HEADER.name()); 
     }
     
     private SecurityContext securityContext() { 

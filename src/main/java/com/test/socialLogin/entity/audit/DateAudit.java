@@ -1,6 +1,9 @@
 package com.test.socialLogin.entity.audit;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.Builder;
+
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
