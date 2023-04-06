@@ -34,6 +34,20 @@ import com.test.socialLogin.service.CustomUserDetailsService;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     CustomUserDetailsService customUserDetailsService;
+    /*
+     * As AuthenticationManagerBuilder needs an UserDetails as input, (line no. 63)
+     * this CustomUserDetailsService implements UserDetailsService, which have an abstract method loadUserByUsername() which return an UserDetails.
+     * Hence, we override the method loadUserByUsername() from UserDetailsService interface.
+     * 
+     * This loadUserByUsername returns a UserDetails(which is a spring security interface) by fetching User data from database
+     * and using that User data to create a UserDetails.
+     * 
+     * To do so, we created a class called UserPrinciple which implements UserDetails interface,
+     * 
+     * This UserPrinciple class has a method called create(User user), takes User as input
+     * and returns a UserDetails object.
+     *  
+     */
 
     @Autowired
     private JwtAuthenticationEntryPoint unauthorizedHandler;
