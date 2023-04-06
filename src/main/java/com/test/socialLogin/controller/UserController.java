@@ -15,6 +15,8 @@ import com.test.socialLogin.repository.UserRepository;
 import com.test.socialLogin.security.CurrentUser;
 import com.test.socialLogin.security.UserPrincipal;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -26,7 +28,12 @@ public class UserController {
 
     @GetMapping("/user/me")
     @PreAuthorize("hasRole('USER')")
-    public UserSummary getCurrentUser(@CurrentUser UserPrincipal currentUser) {
+    public UserSummary getCurrentUser(@ApiIgnore @CurrentUser UserPrincipal currentUser) {
+    	/*
+    	 * @CurrentUser annotation used to invoke the current user
+    	 * @ApiIgnore is a swagger annotation used to tell swagger that we do not want UserPrincipal to be shown in the swagger input list for this api
+    	 */
+    	
         UserSummary userSummary = 
         		new UserSummary(currentUser.getId(), currentUser.getUsername(), currentUser.getName(), currentUser.getEmail());
         return userSummary;

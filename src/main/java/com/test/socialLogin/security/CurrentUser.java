@@ -4,10 +4,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 import java.lang.annotation.*;
 
-@Target({ElementType.PARAMETER, ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-@AuthenticationPrincipal 
 /*
  * The @CurrentUser annotation itself does not get the current user details.
  * It is simply a marker annotation that is used to tell Spring Security to inject the current user details into a parameter that is annotated with @CurrentUser.
@@ -29,6 +25,10 @@ import java.lang.annotation.*;
  * This makes it easier to inject the current user details into your controller methods without having to explicitly use @AuthenticationPrincipal.
  * 
  */
+@Target({ElementType.PARAMETER, ElementType.TYPE, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@AuthenticationPrincipal 
 public @interface CurrentUser {
 
 }
