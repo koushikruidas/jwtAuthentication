@@ -16,7 +16,7 @@ import com.test.socialLogin.entity.User;
 import com.test.socialLogin.service.IHomeService;
 
 @RestController
-@RequestMapping("/home")
+@RequestMapping("/security/home")
 public class HomeController {
 	@Autowired
 	private IHomeService homeService;

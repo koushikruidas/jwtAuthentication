@@ -32,7 +32,7 @@ import com.test.socialLogin.repository.UserRepository;
 import com.test.socialLogin.security.JwtTokenProvider;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/security/api/auth")
 public class AuthController {
 	@Autowired
 	AuthenticationManager authenticationManager;

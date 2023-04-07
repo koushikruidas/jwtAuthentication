@@ -18,7 +18,7 @@ import com.test.socialLogin.security.UserPrincipal;
 import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/security/api")
 public class UserController {
 
     @Autowired
